@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="test6.css">
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+            background-color: rgb(41, 172, 73);
+        }
+        #container{
+            box-sizing: border-box;
+            widows: 1000px;
+            height: 550px;
+            background-size: 100% 100%;
+        }
+        h1{
+            color:yellow;
+            text-align: center;
+            font-size: 50px;
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            width:370px;
+            height: 440px;
+            background-color: yellow;
+            margin: 0 auto;
+            top: 20px;
+            position: relative;
+            border-radius: 5px; 
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .number{
+            background-color:darkorange;
+            width: 81px;
+            height: 95px;
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+        <h1>Puzzle Game</h1>
+        <div class="box">
+            <button class="number" id="10" name="1">10</button>
+            <button class="number" id="11" name="2">11</button>
+            <button class="number" id="7" name="3">7</button>
+            <button class="number" id="8" name="4">8</button>
+            <button class="number" id="9" name="5">9</button>
+            <button class="number" id="12" name="6">12</button>
+            <button class="number" id="4" name="7">4</button>
+            <button class="number" id="5" name="8">5</button>
+            <button class="number" id="6" name="9">6</button>
+            <button class="number" id="13" name="10">13</button>
+            <button class="number" id="1" name="11">1</button>
+            <button class="number" id="2" name="12">2</button>
+            <button class="number" id="3" name="13">3</button>
+            <button class="number" id="14" name="14">14</button>
+            <button class="number" id="15" name="15">15</button>
+            <button class="number" id="empty" name="16"></button>
+        </div>
+     </div>
+    <script >
+        var number = document.getElementsByClassName("number");
+        for(var i =0;i<number.length;i++){
+            number[i].addEventListener('click',function(){
+            var temp=document.getElementById("empty");
+                if(this.id!="empty"){
+                    if(isSafe(this.name,temp.name)){
+                        temp.innerText=this.id;
+                        this.innerText="";
+                        temp.id=this.id;
+                        this.id="empty";
+                    }
+                }
+            });
+        }
+
+        function isSafe(c,d){
+            a=Number(c);
+            b=Number(d);
+            if(a==1){
+                if(b==2 || b==5) return true;
+            }
+            if(a==2 || a==3){
+                if(b==a-1 || b==a+1 || b==a+4) return true;
+            }
+            if(a==4){
+                if(b==3 || b==8 ) return true;
+            }
+            if(a==5 || a==9){
+                if(b==a-4 || b==a+1 || b==a+4) return true;
+            }
+            if(a==6 || a==7 || a==10 || a==11){
+                if(b== a+1 || b== a-1 || b== a-4 || b== a+4 ) return true;
+            }
+            if(a==8 || a==12){
+                if(b== a-1 || b== a-4 || b== a+4) return true;
+            }
+            if(a==13){
+                if(b==9 || b==14) return true;
+            }
+            if(a==14 || a==15){
+                if(b==a-1 || b==a+1 || b==a-4) return true;
+            }
+            if(a==16){
+                if(b==15 || b==12) return true;
+            }
+            return false;
+        }
+
+    </script>
+</body>
+</html>

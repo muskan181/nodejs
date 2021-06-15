@@ -1,0 +1,36 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(41, 172, 73);
+}
+#container{
+    box-sizing: border-box;
+    widows: 1000px;
+    height: 550px;
+    background-size: 100% 100%;
+}
+h1{
+    color:yellow;
+    text-align: center;
+    font-size: 50px;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    width:370px;
+    height: 440px;
+    background-color: yellow;
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.number{
+    background-color:darkorange;
+    width: 81px;
+    height: 95px;
+    margin:5px;
+}

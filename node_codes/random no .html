@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <style>
+        #submit{
+            color: blue;
+        }
+        body{
+            font-family: 'Open Sans', sans-serif;
+            background-color: rgb(41, 172, 73);
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            background-color: yellow;
+            margin: 100px;
+            margin-left: 300px;
+            top: 20px;
+            height: 300px;
+            width: 600px;
+            border-radius: 5px; 
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        p{
+            display: flex;
+            border:blue;
+            flex-direction: wrap;
+            margin:auto;
+            color:rgb(89, 73, 238);
+            margin:5px;
+        }
+     </style>
+</head>
+<body>
+    <div class="conatiner">
+        <h1>Puzzle Game</h1>
+        <div class="inp">
+            <div class="container">
+                <input id="text" placeholder="Select the level" required/>
+                <button onclick="fn1()" class="button" id="submit">submit</button>
+            </div>
+            <div class="box">
+                <p id="matrix"></p>
+            </div>
+        </div>
+    <script type="text/javascript">
+        function fn1(){
+                var arr = [];
+                var str=document.getElementById("text").value;
+                var no=str*str;
+                for(var i=0;i<1000;i++){
+                    var r=Math.floor((Math.random() * no) + 1);                    
+                    if(arr.indexOf(r) === -1) arr.push(r);
+                }
+                var temp = "";
+                for(var i= 0; i < no; i++) {
+                    temp += arr[i]+" ";
+                }
+                document.getElementById("matrix").innerText = temp;
+        }
+    </script>
+</body>
+</html>
