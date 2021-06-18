@@ -1,0 +1,23 @@
+<h2>Products</h2>
+<div *ngFor="let product of products">
+  <!--With *ngFor, the <div> repeats for each product in the list.-->
+
+  <h3>
+    <a [title]="product.name +'details' ">{{product.name}}</a>
+    <!-- we are creating link for every product item-->
+  </h3>
+  <p *ngIf="product.description">
+    <!-- ngfor will only show description for those products which are avaible-->
+    Description: {{product.description}}
+  </p>
+  <button (click)="share()"  >
+    Share
+     <!--creating button for each product-->
+  </button>
+  <app-product-alerts 
+  [product]="product"
+  (notify)="onNotify()">
+  </app-product-alerts>
+  <!-- we are using product alert as a child component of product list that's why we are using as app-product-alerts-->
+</div>
+
