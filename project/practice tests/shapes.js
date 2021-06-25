@@ -76,24 +76,21 @@
 // } 
 // animate2();
 
-
-
-
-
-
-
-const canvas=document.getElementById('triangle')
+const canvas=document.getElementById('upper')
 const cir4=canvas.getContext('2d');
 
 var no1=100;
 var no=1;
+cir4.moveTo(0,100);
+cir4.lineTo(100,100);
+cir4.lineTo(0,150);
 cir4.moveTo(0,0);
 cir4.lineTo(50,100);
 cir4.lineTo(0,100);
 
 cir4.moveTo(50,100);
 cir4.lineTo(0,200);
-cir4.stroke();
+// cir4.stroke();
 for(var i=0;i<12;i++){
     
     cir4.moveTo(no1,0);
@@ -102,20 +99,34 @@ for(var i=0;i<12;i++){
     cir4.lineTo(no1,0);
     cir4.fill();
     // if(no%2!=0){
-    //     cir4.fillStyle="orange";
+        cir4.fillStyle="orange";
     // }
     
     
-    cir4.moveTo(no1-50,100);
-    cir4.lineTo(no1,200);
-    cir4.lineTo(no1+50,100);
-    cir4.fill();
+    // cir4.moveTo(no1-50,100);
+    // cir4.lineTo(no1,200);
+    // cir4.lineTo(no1+50,100);
+    // cir4.fill();
     // if(no%2==0){
     //     cir4.fillStyle="pink";
     // }
     // cir4.beginPath();
 
     cir4.stroke();
-    no1=no1+100;
+    no1=no1+200;
     no++;
+}
+const canvas2=document.getElementById('lower')
+const cir5=canvas2.getContext('2d');
+
+no1=100;
+for(var i=0;i<12;i++){
+    cir5.moveTo(no1-50,100);
+    cir5.lineTo(no1,200);
+    cir5.lineTo(no1+50,100);
+    cir5.fill();
+    // if(no%2==0){
+        cir5.fillStyle="pink";
+    // }
+    no1+=100;
 }
