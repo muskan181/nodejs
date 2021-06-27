@@ -6,7 +6,7 @@ exports.getAllGroceries= async(req,res,next) => {
         //it will take the data and give in json format
     }catch(err){
         if(!err.statusCode){
-            err.statusCode=500
+            err.statusCode=500;
         }
         next(err);
     }
@@ -14,12 +14,13 @@ exports.getAllGroceries= async(req,res,next) => {
 //fetching data from module(mysql)
 
 exports.postGrocery= async(req,res,next) => {
+    console.log(req.body);
     try{
         const postResponse = await Grocery.post(req.body.item);
         res.status(201).json(postResponse);
     }catch(err){
         if(!err.statusCode){
-            err.statusCode=500
+            err.statusCode=500;
         }
         next(err);
     }
@@ -32,7 +33,7 @@ exports.putGrocery= async(req,res,next) => {
         res.status(201).json(putResponse);
     }catch(err){
         if(!err.statusCode){
-            err.statusCode=500
+            err.statusCode=500;
         }
         next(err);
     }
@@ -45,7 +46,7 @@ exports.deleteGrocery= async(req,res,next) => {
         res.status(201).json(deleteResponse);
     }catch(err){
         if(!err.statusCode){
-            err.statusCode=500
+            err.statusCode=500;
         }
         next(err);
     }

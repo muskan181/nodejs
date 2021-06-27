@@ -6,7 +6,7 @@ module.exports=class Grocery{
         this.item=item;
     }
     static fetchAll(){
-        return db.execute('SELECT * FROM groceries')
+        return db.execute('SELECT * FROM groceries');
         // return the table of mysql database
     }
     static post(item){
