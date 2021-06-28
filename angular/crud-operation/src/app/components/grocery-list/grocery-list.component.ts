@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 })
 export class GroceryListComponent implements OnInit {
 
-  groceries$ !: Observable<Grocery[]> 
+  groceries$ : Observable<Grocery[]> | undefined 
   constructor( private groceryListCrudService: GroceryListCrudService) { }
 
   ngOnInit(): void {
@@ -22,20 +22,18 @@ export class GroceryListComponent implements OnInit {
     return this.groceryListCrudService.fetchAll()
   }
   post(groceryItem: Partial<Grocery>): void {
-    const item = (<string>groceryItem).trim()
-    if(!item) return;
+    // const item = (<string>groceryItem).trim()
+    // if(!item) return;
 
     this.groceries$=this.groceryListCrudService
-      .post({ item })
+      .post(groceryItem)
       .pipe(tap(() => this.groceries$=this.fetchAll()));
   }
-  update(id: number,newItem: Partial<Grocery>): void{
-    const item = (<string>newItem).trim()
-    if(!item) return;
+  update(id: number,newItem: string): void{
 
     const newGrocery: Grocery={
-      id,
-      item
+      "id":id,
+      "item":newItem
     };
 
     this.groceries$=this.groceryListCrudService
@@ -45,6 +43,6 @@ export class GroceryListComponent implements OnInit {
   delete(id: number):void{
     this.groceries$=this.groceryListCrudService
       .delete(id)
-      .pipe(tap(() => this.groceries$=this.fetchAll()));
+      .pipe(tap(() => (this.groceries$=this.fetchAll())));
   }
 }

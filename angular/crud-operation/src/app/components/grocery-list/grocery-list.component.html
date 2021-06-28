@@ -2,8 +2,9 @@
 <mat-toolbar color="primary">CRUD operations </mat-toolbar>
 <h1 style ="text-align: center; font-size: 48px; font-weight: bold; margin-top: 100px"> Shopping List</h1>
 <mat-card style=" width: 50%; margin: auto;">
+    
     <button 
-    (click)="post(groceryInput.value)" 
+        (click)="post({item:groceryInput.value})"
         mat-fab  
         color="primary" 
         style="float: right;"
@@ -19,7 +20,8 @@
             <span style="font-weight: bold;">{{ grocery.id}}. {{grocery.item}}</span>
             <span style="position: absolute; right: 0;">
                 <button mat-icon-button>
-                    <mat-icon (click)="update(grocery.id,groceryInput.value)" color="primary"> 
+                    
+                    <mat-icon (click)="update(grocery.id,groceryInput.value)"  color="primary"> 
                         edit
                     </mat-icon>
                 </button>

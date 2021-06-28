@@ -78,9 +78,55 @@
 
 const canvas=document.getElementById('box')
 const cir4=canvas.getContext('2d');
-
+// canvas.width=window.innerWidth;
+// canvas.height=window.innerHeight;
 var no1=0;
 
+// let positionX=0;
+// // let positionY=100;
+// function triangle(){
+//     for(var i=0;i<12;i++){
+//             cir4.fillStyle="pink";
+//             cir4.beginPath();
+//             // cir4.setLineDash([3, 3]);
+//             cir4.moveTo(positionX,0);
+//             cir4.lineTo(positionX-50,100);
+//             cir4.lineTo(positionX+50,100);
+//             cir4.lineTo(positionX,0);
+//             cir4.closePath();
+            
+//             // cir4.stroke();
+//             cir4.fill();
+            
+//     }
+    // positionX=100;
+    // for(var i=0;i<13;i++){
+    //     cir4.setLineDash([5, 5]);
+    //     cir4.moveTo(positionX,0);
+    //     cir4.lineTo(positionX-50,100);
+    //     cir4.lineTo(positionX+50,100);
+    //     cir4.lineTo(positionX,0);
+    //     cir4.fillStyle="#D3D3D3";
+    //     cir4.fill();
+    //     cir4.beginPath();
+    //     // no1=no1+200;
+    //     positionX+=200;
+
+    // }
+    // positionX=100;
+    // for(var i=0;i<12;i++){
+    //     cir4.setLineDash([5, 5]);
+    //     cir4.moveTo(positionX-50,100);
+    //     cir4.lineTo(positionX,200);
+    //     cir4.lineTo(positionX-100,200);
+    //     cir4.lineTo(positionX-50,100);
+    //     cir4.fillStyle="#D3D3D3";
+    //     cir4.fill();
+    //     cir4.beginPath();
+    //     // no1+=100;
+    //     positionX+=100;
+    // }
+// }
 
 for(var i=0;i<12;i++){
     cir4.setLineDash([3, 3]);
@@ -119,3 +165,19 @@ for(var i=0;i<12;i++){
     cir4.beginPath();
     no1+=100;
 }
+// angle=0;
+// function animate(){
+//     cir4.clearRect=(0,0,canvas.width,canvas.height);
+//     //it will clear the previous animation
+//     // size+=0.1;
+//     // to increase the size of circle
+//     positionX+=5*Math.sin(angle);
+//     // positionY+=5*Math.cos(angle);
+//     // to make the circle move in x and y direction
+//     angle+=0.1;
+//     //it will make the circle move like a sine wave
+//     triangle();
+//     requestAnimationFrame(animate);
+//     // calling animation function again n again for creating a loop
+// } 
+// animate();
