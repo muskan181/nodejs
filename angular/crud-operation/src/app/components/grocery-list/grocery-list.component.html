@@ -15,22 +15,26 @@
         <mat-label>Grocery item</mat-label>
         <input #groceryInput matInput placeholder="Ex. rice"/>
     </mat-form-field>
-    <mat-list>
-        <mat-list-item  *ngFor="let grocery of groceries$ | async">
-            <span style="font-weight: bold;">{{ grocery.id}}. {{grocery.item}}</span>
-            <span style="position: absolute; right: 0;">
-                <button mat-icon-button>
-                    
-                    <mat-icon (click)="update(grocery.id,groceryInput.value)"  color="primary"> 
-                        edit
-                    </mat-icon>
-                </button>
-                <button mat-icon-button>
-                    <mat-icon (click)="delete(grocery.id)"color="warn">
-                        delete
-                    </mat-icon>
-                </button>
-            </span>
-        </mat-list-item>
-    </mat-list>
+    <!-- <div cdkDropList 
+        class="example-list"
+        (cdkDropListDropped)="onDrop($event)"> -->
+        <mat-list *ngFor="let grocery of groceries$ | async" >
+            <mat-list-item >
+                <span style="font-weight: bold;">{{ grocery.id}}. {{grocery.item}} {{grocery.quantity}}</span>
+                <span style="position: absolute; right: 0;">
+                    <button mat-icon-button>
+                        <!-- (click)="update(grocery.id,groceryInput.value,groceryInput)" -->
+                        <mat-icon   color="primary"> 
+                            edit
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon (click)="delete(grocery.id)"color="warn">
+                            delete
+                        </mat-icon>
+                    </button>
+                </span>
+            </mat-list-item>
+        </mat-list>
+    <!-- </div> -->
 </mat-card>

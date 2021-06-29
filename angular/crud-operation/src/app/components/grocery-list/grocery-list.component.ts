@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { GroceryListCrudService } from 'src/app/services/grocery-list-crud.service';
 import { Grocery } from 'src/app/models/Grocery';
 import { tap } from 'rxjs/operators';
-
+import { CdkDragDrop, moveItemInArray,transferArrayItem,CdkDrag } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-grocery-list',
@@ -29,11 +29,12 @@ export class GroceryListComponent implements OnInit {
       .post(groceryItem)
       .pipe(tap(() => this.groceries$=this.fetchAll()));
   }
-  update(id: number,newItem: string): void{
+  update(id: number,newItem: string, newQuan: number): void{
 
     const newGrocery: Grocery={
       "id":id,
-      "item":newItem
+      "item":newItem,
+      "quantity": newQuan
     };
 
     this.groceries$=this.groceryListCrudService
@@ -45,4 +46,10 @@ export class GroceryListComponent implements OnInit {
       .delete(id)
       .pipe(tap(() => (this.groceries$=this.fetchAll())));
   }
+  // onDrop(event: Observable<Grocery[]>){
+  //   this.groceries$=this.groceryListCrudService
+  //     .onDrop(this.fetchAll())
+  //     .pipe(tap(() => (this.groceries$=this.fetchAll())));
+  // }
+  
 }

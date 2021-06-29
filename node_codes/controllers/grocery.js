@@ -16,7 +16,7 @@ exports.getAllGroceries= async(req,res,next) => {
 exports.postGrocery= async(req,res,next) => {
     console.log(req.body);
     try{
-        const postResponse = await Grocery.post(req.body.item);
+        const postResponse = await Grocery.post(req.body.item, req.body.quantity);
         res.status(201).json(postResponse);
     }catch(err){
         if(!err.statusCode){
@@ -29,7 +29,7 @@ exports.postGrocery= async(req,res,next) => {
 
 exports.putGrocery= async(req,res,next) => {
     try{
-        const putResponse = await Grocery.update(req.body.id,req.body.item);
+        const putResponse = await Grocery.update(req.body.id,req.body.item, req.body.quantity);
         res.status(201).json(putResponse);
     }catch(err){
         if(!err.statusCode){

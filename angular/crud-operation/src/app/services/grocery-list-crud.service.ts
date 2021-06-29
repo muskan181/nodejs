@@ -4,7 +4,7 @@ import { Grocery } from 'src/app/models/Grocery';
 import { Observable } from 'rxjs';
 import {catchError , tap} from 'rxjs/operators';
 import { ErrorHandlerService } from '../services/error-handler.service';
-
+import { CdkDragDrop, moveItemInArray,transferArrayItem,CdkDrag } from '@angular/cdk/drag-drop';
 @Injectable({
   providedIn: "root",
 })
@@ -24,12 +24,7 @@ export class GroceryListCrudService{
   fetchAll(): Observable<Grocery[]>{
     return this.http
       .get<Grocery[]>(this.url, {responseType:"json"})
-      .pipe(
-        tap((_) => console.log("fetched groceries")),
-        catchError(
-          this.errorHandlerService.handleError<Grocery[]>("operation" , [])
-        )
-      );
+      .pipe(catchError(this.errorHandlerService.handleError<Grocery[]>("operation" , [])));
   }
   post(item: Partial<Grocery> ): Observable<any>{
     return this.http
@@ -48,4 +43,9 @@ export class GroceryListCrudService{
     .delete<Grocery>(url,this.httpOptions)
     .pipe(catchError(this.errorHandlerService.handleError<any>("operation")));
   }
+  // onDrop( event: Observable<Grocery[]>){
+  //   return this.http
+  //     .get<Grocery[]>(this.url, {responseType:"json"})
+  //     .pipe(catchError(this.errorHandlerService.handleError<Grocery[]>("operation" , [])));
+  // }
 }
