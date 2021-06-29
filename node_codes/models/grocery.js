@@ -15,7 +15,7 @@ module.exports=class Grocery{
         //it will add item in grocery
     }
     static update(id,item,quantity){
-        return db.execute('UPDATE groceries SET item = ? AND quantity = ? WHERE id = ?',[item,quantity,id]);
+        return db.execute('UPDATE groceries SET item = ?,  quantity = ? WHERE id = ?',[item,quantity,id]);
     }
     static delete(id){
         return db.execute('DELETE FROM groceries WHERE id= ?',[id]);
