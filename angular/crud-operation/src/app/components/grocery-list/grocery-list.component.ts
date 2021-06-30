@@ -47,9 +47,14 @@ export class GroceryListComponent implements OnInit {
       .pipe(tap(() => (this.groceries$=this.fetchAll())));
   }
   // onDrop(event: Observable<Grocery[]>){
-  //   this.groceries$=this.groceryListCrudService
-  //     .onDrop(this.fetchAll())
-  //     .pipe(tap(() => (this.groceries$=this.fetchAll())));
+
+  //   // this.groceries$=this.groceryListCrudService
+  //   //   .onDrop(this.fetchAll())
+  //   //   .pipe(tap(() => (this.groceries$=this.fetchAll())));
+  // }
+  // onDrop(event: CdkDragDrop<Grocery>){
+  //   moveItemInArray(this.groceries$, event.previousIndex, 
+  //     event.currentIndex);
   // }
   
 }

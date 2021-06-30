@@ -76,35 +76,35 @@
 // } 
 // animate2();
 
-const canvas=document.getElementById('box')
+const canvas=document.getElementById('triangle1')
 const cir4=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 // var no1=0;
 
-let positionX=200;
+// let positionX=200;
 let positionX1=100;
-let positionX2=100;
+// let positionX2=100;
 let positionY=100;
-let positionY2=100;
-let positionY3=100;
-function triangle(){
+// let positionY2=100;
+// // let positionY3=100;
+// function triangle(){
 //     // for(var i=0;i<12;i++){
-            console.log("jsndk");
+            // console.log("jsndk");
             // cir4.setLineDash([3, 3]);
-            cir4.moveTo(positionX,positionY-100);
-            cir4.lineTo(positionX-50,positionY);
-            cir4.lineTo(positionX+50,positionY);
-            cir4.lineTo(positionX,positionY-100);
-            cir4.fillStyle="white";
-            // cir4.stroke();  
-            cir4.fill();
-            cir4.beginPath();
-            // positionX+=200;
+            // cir4.moveTo(positionX,positionY-100);
+            // cir4.lineTo(positionX-50,positionY);
+            // cir4.lineTo(positionX+50,positionY);
+//             cir4.lineTo(positionX,positionY-100);
+//             cir4.fillStyle="white";
+//             cir4.stroke();  
+//             cir4.fill();
+//             cir4.beginPath();
+//             // positionX+=200;
      
-    // }
+//     // }
 
-}
+// }
 //     // for(var i=0;i<13;i++){
 //         // cir4.setLineDash([5, 5]);
 function triangle1(){
@@ -122,18 +122,18 @@ function triangle1(){
 //     // positionX=100;
 //     // for(var i=0;i<12;i++){
 //         // cir4.setLineDash([5, 5]);
-function triangle2(){
-        cir4.moveTo(positionX2-50,positionY2);
-        cir4.lineTo(positionX2,positionY2+100);
-        cir4.lineTo(positionX2-100,positionY2+100);
-        cir4.lineTo(positionX2-50,positionY);
-        cir4.fillStyle="#D3D3D3";
-        cir4.fill();
+// function triangle2(){
+//         cir4.moveTo(positionX2-50,positionY2);
+//         cir4.lineTo(positionX2,positionY2+100);
+//         cir4.lineTo(positionX2-100,positionY2+100);
+//         cir4.lineTo(positionX2-50,positionY);
+//         cir4.fillStyle="#D3D3D3";
+//         cir4.fill();
         // positionX2+=100;
     // }
         // triangle1();
 
-}
+// }
 
 // // for(var i=0;i<12;i++){
 // //     cir4.setLineDash([3, 3]);
@@ -176,16 +176,25 @@ function triangle2(){
 angle=0;
 function animate(){
     cir4.clearRect=(0,0,canvas.width,canvas.height);
-    positionX+=Math.sin(angle);
-    positionX1+=Math.sin(angle);
-    positionX2+=Math.sin(angle);
-    positionY+=Math.sin(angle);
-    positionY2+=Math.sin(angle);
-    positionY3+=Math.sin(angle);
-    angle+=0.1;
-    triangle();
+    // positionX+=Math.sin(angle);
+    // positionX1+=Math.sin(angle);
+    // positionX2+=Math.sin(angle);
+    // positionY+=Math.sin(angle);
+    // positionY2+=Math.sin(angle);
+    // positionY3+=Math.sin(angle);
+    // angle+=0.1;
+//     const width = 150,
+//     height = 20;
+
+// // canvas center X and Y
+//     const centerX = canvas.width / 2,
+//         centerY = canvas.height / 2;
+//     cir4.translate(centerX, centerY);
+//     cir4.rotate(45 * Math.PI / 180);
+
+    // triangle();
     triangle1();
-    triangle2();
+    // triangle2();
     requestAnimationFrame(animate);
 } 
 animate();
@@ -210,57 +219,3 @@ animate();
 // //     requestAnimationFrame(animate3);
 // // } 
 // // animate3();
-// var cd;
-// var ctx2;
-// var startPoint;
-// var endPoint;
-// var midPoint;
-
-// function init() {
-//   cd = document.getElementById("box");
-//   cd.width = 500;
-//   cd.height = 500;
-
-//   ctx2 = cd.getContext("2d");
-// }
-
-
-// function draw() {
-//   startPoint = {
-//     x: 200,
-//     y: 200
-//   };
-//   endPoint = {
-//     x: startPoint.x + 100,
-//     y: startPoint.y + 100
-// };
-
-// ctx2.beginPath();
-// ctx2.setLineDash([1, 2]);
-
-// // rotate around center - find mid-point using lerp
-// midPoint = {
-//   x: startPoint.x + (endPoint.x - startPoint.x) * 0.5,
-//   y: startPoint.y + (endPoint.y - startPoint.y) * 0.5
-// };
-
-// // translate to midpoint
-// ctx2.translate(midPoint.x, midPoint.y);
-
-// // rotate some angle (radians)
-// ctx2.rotate(0.25 * Math.PI);  // = 45°
-
-// // translate back
-// ctx2.translate(-midPoint.x, -midPoint.y);
-//  // draw line
-//  ctx2.moveTo(startPoint.x, startPoint.y);
-//  ctx2.lineTo(endPoint.x, endPoint.y);
-//  ctx2.stroke();
-//  ctx2.closePath();
- 
-//  // reset transforms
-//  ctx2.setTransform(1,0,0,1,0,0);
-// }
-
-// init();
-// draw();

@@ -1,0 +1,15 @@
+td, th {  
+    text-align: left;  
+    padding: 8px;  
+  }  
+ .row-color.odd {  
+    background-color: #315ae0;  
+  } 
+  .row-color {  
+    background-color: #e9ebf5;  
+  } 
+  /* th:hover{  
+    background-color: #101107;  
+  }   */
+
+

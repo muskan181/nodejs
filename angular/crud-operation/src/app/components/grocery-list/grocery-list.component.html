@@ -3,8 +3,7 @@
 <h1 style ="text-align: center; font-size: 48px; font-weight: bold; margin-top: 100px"> Shopping List</h1>
 <mat-card style=" width: 50%; margin: auto;">
     
-    <button 
-        (click)="post({item:groceryInput.value})"
+    <button (click)="post({item:groceryInput.value, quantity:10})" 
         mat-fab  
         color="primary" 
         style="float: right;"
@@ -14,17 +13,25 @@
     <mat-form-field style="width: 100%;">
         <mat-label>Grocery item</mat-label>
         <input #groceryInput matInput placeholder="Ex. rice"/>
+        <mat-label>Grocery quantity</mat-label>
+        <input #groceryQuan matInput placeholder="Ex. 2">
     </mat-form-field>
     <!-- <div cdkDropList 
         class="example-list"
         (cdkDropListDropped)="onDrop($event)"> -->
-        <mat-list *ngFor="let grocery of groceries$ | async" >
-            <mat-list-item >
-                <span style="font-weight: bold;">{{ grocery.id}}. {{grocery.item}} {{grocery.quantity}}</span>
+        <mat-list *ngFor="let grocery of groceries$ | async ;let index = index ">
+            <mat-list-item [ngStyle]="{'background-color':index%2==0 ? '#315ae0' : '#e9ebf5' }">
+                <table>
+                    <th style="font-weight: bold;">{{ grocery.id}}. </th>
+                    <th style="font-weight: bold;">{{grocery.item}}</th>
+                    <th style="font-weight: bold;">{{grocery.quantity}}</th>
+                </table>
                 <span style="position: absolute; right: 0;">
-                    <button mat-icon-button>
-                        <!-- (click)="update(grocery.id,groceryInput.value,groceryInput)" -->
-                        <mat-icon   color="primary"> 
+                    <!--  -->
+                    <button mat-icon-button
+                    (click)="update(grocery.id ,groceryInput.value,15)" color="primary"
+                      >
+                        <mat-icon >
                             edit
                         </mat-icon>
                     </button>
