@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .arrow-up {
+            width: 0; 
+            height: 0; 
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            
+            border-bottom: 60px solid black;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="rotateDIV()" id="rotate3D" style="transform: rotateY(360deg);"></div> -->
+    <canvas   class="arrow-up" id="rotateYdIV" ></canvas>
+    <script>
+        // var c = document.getElementById('rotateYdIV');
+        // var ctx = c.getContext("2d");
+        // c.width=window.innerWidth;
+        // c.height=window.innerHeight;
+        const canvas=document.getElementById('rotateYdIV');
+        const cir4=canvas.getContext('2d');
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        
+        let x=250;
+        let y=220;
+        let z=200;
+        let m=150;
+        // function rotateY(){
+            // ctx.clearRect(0, 0, width, height);
+            // ctx.rotate(20 * Math.PI / 180);
+            
+            
+        // }
+        // function animate(){
+            let positionX1=400;
+            let positionY=200;
+            // for(var i=0;i<10;i++){
+                // ctx.clearRect(0,0,c.width,c.height);
+                // ctx.clearRect(0,0,canvas.width,canvas.height);
+                // cir4.rotate( -90*Math.PI /360);
+                // ctx.fillRect(x, y, z, m);
+                // x+=25;
+                // y+=25;
+                // z+=25;
+                // m+=25;
+                // cir4.translate(50,50);
+            cir4.moveTo(50,0);
+            cir4.lineTo(0,50);
+            cir4.lineTo(100,50);
+            cir4.fillStyle="#D3D3D3";
+            cir4.fill();
+
+            cir4.moveTo(150,0);
+            cir4.lineTo(100,50);
+            cir4.lineTo(200,50);
+            cir4.fillStyle="#D3D3D3";
+            cir4.fill();
+
+            cir4.moveTo(100,50);
+            cir4.lineTo(50,100);
+            cir4.lineTo(150,100);
+            cir4.fillStyle="#D3D3D3";
+            cir4.fill();
+
+
+            cir4.translate(350,50);
+
+            // cir4.rotate( -360*Math.PI /360);
+            cir4.moveTo(0,0);
+            cir4.lineTo(-50,50);
+            cir4.lineTo(50,50);
+            cir4.fillStyle="#D3D3D3";
+            cir4.fill();
+            
+            // cir4.rotate( -360*Math.PI /360);
+
+            cir4.moveTo(-50,50);
+            cir4.lineTo(-100,100);
+            cir4.lineTo(0,100);
+            cir4.fillStyle="#D3D3D3";
+            cir4.fill();
+
+            // cir4.rotate( -360*Math.PI /360);
+
+            // cir4.moveTo(50,-50);
+            // cir4.lineTo(100,0);
+            // cir4.lineTo(0,0);
+            // cir4.fillStyle="#D3D3D3";
+            // cir4.fill();
+
+            
+
+
+            
+    </script>
+</body>
+</html>

@@ -17,8 +17,10 @@ exports.postGrocery= async(req,res,next) => {
     console.log(req.body);
     try{
         const postResponse = await Grocery.post(req.body.item, req.body.quantity);
+        console.log(postResponse);
         res.status(201).json(postResponse);
     }catch(err){
+        console.log("1",err);
         if(!err.statusCode){
             err.statusCode=500;
         }
