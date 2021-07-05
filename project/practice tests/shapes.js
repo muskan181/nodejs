@@ -80,142 +80,126 @@ const canvas=document.getElementById('triangle1')
 const cir4=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-// var no1=0;
 
-// let positionX=200;
-let positionX1=100;
-// let positionX2=100;
-let positionY=100;
-// let positionY2=100;
-// // let positionY3=100;
-// function triangle(){
-//     // for(var i=0;i<12;i++){
-            // console.log("jsndk");
-            // cir4.setLineDash([3, 3]);
-            // cir4.moveTo(positionX,positionY-100);
-            // cir4.lineTo(positionX-50,positionY);
-            // cir4.lineTo(positionX+50,positionY);
-//             cir4.lineTo(positionX,positionY-100);
-//             cir4.fillStyle="white";
-//             cir4.stroke();  
-//             cir4.fill();
-//             cir4.beginPath();
-//             // positionX+=200;
-     
-//     // }
+const canvas2=document.getElementById('triangle2')
+const cir5=canvas2.getContext('2d');
+canvas2.width=window.innerWidth;
+canvas2.height=window.innerHeight;
 
+
+var no1=0;
+let no5=1;
+let no6=0;
+
+// for(var i=0;i<13;i++){
+//     cir4.fillStyle = 'white' ;
+//     cir4.beginPath();
+
+//     cir4.moveTo(no1,0);
+//     cir4.lineTo(no1-50,100);
+//     cir4.lineTo(no1+50,100);
+//     cir4.lineTo(no1,0);
+
+//     cir4.stroke();
+//     cir4.fill();
+//     no1+=200;
 // }
-//     // for(var i=0;i<13;i++){
-//         // cir4.setLineDash([5, 5]);
-function triangle1(){
-        cir4.moveTo(positionX1,positionY-100);
-        cir4.lineTo(positionX1-50,positionY);
-        cir4.lineTo(positionX1+50,positionY);
-        cir4.lineTo(positionX1,positionY-100);
-        cir4.fillStyle="#D3D3D3";
-        cir4.fill();
-        // triangle2();
 
-        // positionX1+=200;
+function main1(Color1) {
+    no1=100;
+    for(var i=0;i<13;i++){
+        cir5.fillStyle = Color1 ;
+        // cir4.beginPath();
+
+        // cir4.moveTo(no1,300);
+        // cir4.lineTo(no1+100,300);
+        // cir4.lineTo(no1-100,300);
+        // cir4.lineTo(no1,0);
+        
+        // cir4.lineTo(no1+50,100);
+        
+        cir5.stroke();
+        cir5.fill();
+        cir5.closePath();
+
+        no1=no1+100;
+        
+    }
+    no1=50;
+    for(var i=0;i<13;i++){
+        cir5.fillStyle = Color1 ;
+        // cir4.beginPath();
+
+        cir5.moveTo(no1,500);
+        cir5.lineTo(no1+50,400);
+        // cir4.lineTo(no1+50,200);
+        // cir4.lineTo(no1+50,300);
+        // cir4.lineTo(no1+50,500);
+        cir5.lineTo(no1+100,500);
+        // cir4.lineTo(no1+50,300);
+        // cir4.lineTo(50,200);
+        cir5.stroke();
+        cir5.fill();
+        cir5.closePath();
+
+        no1+=200;
+    }
+
 }
-//     // }
-//     // positionX=100;
-//     // for(var i=0;i<12;i++){
-//         // cir4.setLineDash([5, 5]);
-// function triangle2(){
-//         cir4.moveTo(positionX2-50,positionY2);
-//         cir4.lineTo(positionX2,positionY2+100);
-//         cir4.lineTo(positionX2-100,positionY2+100);
-//         cir4.lineTo(positionX2-50,positionY);
-//         cir4.fillStyle="#D3D3D3";
-//         cir4.fill();
-        // positionX2+=100;
-    // }
-        // triangle1();
 
-// }
+function main2(Color2) {
+    no1=100;
+    for(var i=0;i<13;i++){
+        cir4.fillStyle = Color2 ;
+        // cir4.beginPath();
+        cir4.moveTo(no1,0);
+        cir4.lineTo(no1-50,100);
+        cir4.lineTo(no1+50,100);
+        // cir4.lineTo(no1,0);
+        
+        cir4.stroke();
+        cir4.fill();
+        cir4.closePath();
+        no1=no1+200;
+        
+    }
+    
+    no1=100;
+    for(var i=0;i<13;i++){
 
-// // for(var i=0;i<12;i++){
-// //     cir4.setLineDash([3, 3]);
-// //     cir4.moveTo(no1,0);
-// //     cir4.lineTo(no1-50,100);
-// //     cir4.lineTo(no1+50,100);
-// //     cir4.lineTo(no1,0);
-// //     cir4.fillStyle="white";
-// //     cir4.stroke();
-// //     cir4.fill();
-// //     cir4.beginPath();
-// //     no1=no1+200;
-// // }
-// // no1=100;
-// // for(var i=0;i<13;i++){
-// //     cir4.setLineDash([5, 5]);
-// //     cir4.moveTo(no1,0);
-// //     cir4.lineTo(no1-50,100);
-// //     cir4.lineTo(no1+50,100);
-// //     cir4.lineTo(no1,0);
-// //     cir4.fillStyle="#D3D3D3";
-// //     cir4.fill();
-// //     cir4.beginPath();
-// //     no1=no1+200;
+        cir4.fillStyle = Color2 ;
+        // cir4.beginPath();
 
-// // }
-// // no1=100;
-// // for(var i=0;i<12;i++){
-// //     cir4.setLineDash([5, 5]);
-// //     cir4.moveTo(no1-50,100);
-// //     cir4.lineTo(no1,200);
-// //     cir4.lineTo(no1-100,200);
-// //     cir4.lineTo(no1-50,100);
-// //     cir4.fillStyle="#D3D3D3";
-// //     cir4.fill();
-// //     cir4.beginPath();
-// //     no1+=100;
-// // }
-// let count=0;
-angle=0;
-function animate(){
-    cir4.clearRect=(0,0,canvas.width,canvas.height);
-    // positionX+=Math.sin(angle);
-    // positionX1+=Math.sin(angle);
-    // positionX2+=Math.sin(angle);
-    // positionY+=Math.sin(angle);
-    // positionY2+=Math.sin(angle);
-    // positionY3+=Math.sin(angle);
-    // angle+=0.1;
-//     const width = 150,
-//     height = 20;
+        cir4.moveTo(no1-50,100);
+        cir4.lineTo(no1,200);
+        cir4.lineTo(no1-100,200);
+        // cir4.lineTo(no1-50,100);
 
-// // canvas center X and Y
-//     const centerX = canvas.width / 2,
-//         centerY = canvas.height / 2;
-//     cir4.translate(centerX, centerY);
-//     cir4.rotate(45 * Math.PI / 180);
+        cir4.stroke();
+        cir4.fill();
+        cir4.closePath();
+        no1+=100;
+    }
+}
+  var changeColor = setInterval(function() {
+    if(no5%2==0) Color1='grey';
+    else Color1='white';
+    console.log(no5);
+    main1(Color1)
+    no5+=1;
+  }, 1000)
+//   main1(Color1);
+  
+//   window.addEventListener("load", main1);
 
-    // triangle();
-    triangle1();
-    // triangle2();
-    requestAnimationFrame(animate);
-} 
-animate();
-// // function animate2(){
-// //     cir4.clearRect=(0,0,canvas.width,canvas.height);
-// //     // positionX+=100*Math.sin(angle);
-// //     // positionX1+=1*Math.sin(angle);
-// //     // positionX2+=50*Math.sin(angle);
-// //     angle+=1;
-// //     // triangle();
-// //     triangle1();
-// //     requestAnimationFrame(animate3);
-// // } 
-// // animate2();
-// // function animate3(){
-// //     cir4.clearRect=(0,0,canvas.width,canvas.height);
-// //     // positionX+=100*Math.sin(angle);
-// //     // positionX1+=1*Math.sin(angle);
-// //     // positionX2+=50*Math.sin(angle);
-// //     angle+=1;
-// //     triangle2();
-// //     requestAnimationFrame(animate3);
-// // } 
-// // animate3();
+  var changeColor2 = setInterval(function() {
+    if(no6%2==0) Color2='grey';
+    else Color2='white';
+    
+    main2(Color2)
+    no6+=1;
+  }, 1000)
+//   main2(Color2)
+
+//   window.addEventListener("load", main2);
+

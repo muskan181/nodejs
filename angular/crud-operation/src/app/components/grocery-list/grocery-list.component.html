@@ -18,11 +18,12 @@
         <mat-label>Grocery quantity</mat-label>
         <input  #groceryQuan matInput placeholder="Ex. 2"/>
     </mat-form-field>
-    <div cdkDropList 
-        class="example-list"
+    <div class="example-list"
+        cdkDropList 
         (cdkDropListDropped)="onDrop($event)">
-        <mat-list *ngFor="let grocery of groceries$ | async ;let index = index " style="cursor: move" cdkDrag >
-            <mat-list-item [ngStyle]="{'background-color':index%2==0 ? '#315ae0' : '#e9ebf5' }" >
+        <mat-list  cdkDrag *ngFor="let grocery of groceries$ | async ;let index = index " style="cursor: move"  >
+            
+            <mat-list-item   [ngStyle]="{'background-color':index%2==0 ? '#315ae0' : '#e9ebf5' }" >
                 <table >
                     <th style="font-weight: bold;">{{ grocery.id}}. </th>
                     <th style="font-weight: bold;">{{grocery.item}}</th>

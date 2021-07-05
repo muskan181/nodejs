@@ -5,6 +5,7 @@ import { Grocery } from 'src/app/models/Grocery';
 import { tap } from 'rxjs/operators';
 import { CdkDragDrop, moveItemInArray,transferArrayItem,CdkDrag } from '@angular/cdk/drag-drop';
 import { MatList } from '@angular/material/list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-grocery-list',
@@ -47,45 +48,20 @@ export class GroceryListComponent implements OnInit {
       .delete(id)
       .pipe(tap(() => (this.groceries$=this.fetchAll())));
   }
-  // @ViewChild(MatList, { read: ElementRef }) child: ElementRef;
 
-  // _currentIndex;
-  // _currentField;
-
-  types = [
-    'number',
-    'string',
-    'number'
-  ]
-
-  // onDrop(event: Observable<Grocery[]>){
-
-  //   // this.groceries$=this.groceryListCrudService
-  //   //   .onDrop(this.fetchAll())
-  //   //   .pipe(tap(() => (this.groceries$=this.fetchAll())));
-  // }
-
-  // fields: string[] = [];
-
-  // moved(event: CdkDragMoved<any[]>) {
-  //   // Check if stored HTML field is as same as current field
-  //   if (this.child.nativeElement.children[this._currentIndex] !== this._currentField) {
-  //     // Replace current field, basically replaces placeholder with old HTML content
-  //     this.child.nativeElement.replaceChild(this._currentField, this.child.nativeElement.children[this._currentIndex]);
+  grocery=[];
+  onDrop(event:CdkDragDrop<string[]> ){
+    moveItemInArray(this.grocery, event.previousIndex, 
+      event.currentIndex);
+  }
+  // onDrop(event:CdkDragDrop<string[]> ){
+  //   if(event.previousContainer===event.container){
+  //     moveItemInArray(event.container.data, event.previousIndex, 
+  //       event.currentIndex);
+  //   }else{
+  //     transferArrayItem(event.previousContainer.data,
+  //       event.container.data,
+  //       event.previousIndex,event.currentIndex);
   //   }
   // }
-  // onDrop(event:CdkDragDrop<string[]> ){
-  //   moveItemInArray(this.fields, event.previousIndex, 
-  //     event.currentIndex);
-  // }
-  onDrop(event:CdkDragDrop<string[]> ){
-    if(event.previousContainer===event.container){
-      moveItemInArray(event.container.data, event.previousIndex, 
-        event.currentIndex);
-    }else{
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,event.currentIndex);
-    }
-  }
 }
