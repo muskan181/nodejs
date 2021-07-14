@@ -87,38 +87,54 @@ canvas2.width=window.innerWidth;
 canvas2.height=window.innerHeight;
 
 
-var no1=0;
-let no5=1;
+
+let no5=0;
 let no6=0;
 
+// no1=200;
 // for(var i=0;i<13;i++){
-//     cir4.fillStyle = 'white' ;
-//     cir4.beginPath();
+//   cir4.fillStyle = 'white' ;
+//   cir4.beginPath();
 
-//     cir4.moveTo(no1,0);
-//     cir4.lineTo(no1-50,100);
-//     cir4.lineTo(no1+50,100);
-//     cir4.lineTo(no1,0);
+//   cir4.moveTo(no1,490);
+//   cir4.lineTo(no1-50,390);
+//   cir4.lineTo(no1+50,390);
+//   cir4.lineTo(no1,490);
 
-//     cir4.stroke();
-//     cir4.fill();
-//     no1+=200;
+//   cir4.stroke();
+//   cir4.fill();
+//   no1+=200;
 // }
 
+
 function main1(Color1) {
-    no1=100;
+  no1=200;
+  for(var i=0;i<13;i++){
+    cir5.fillStyle = 'white' ;
+    cir5.beginPath();
+
+    cir5.moveTo(no1,600);
+    cir5.lineTo(no1-50,500);
+    cir5.lineTo(no1+50,500);
+    cir5.lineTo(no1,600);
+
+    // cir5.stroke();
+    cir5.fill();
+    no1+=200;
+  }
+    no1=50;
     for(var i=0;i<13;i++){
         cir5.fillStyle = Color1 ;
         // cir4.beginPath();
 
-        // cir4.moveTo(no1,300);
-        // cir4.lineTo(no1+100,300);
-        // cir4.lineTo(no1-100,300);
-        // cir4.lineTo(no1,0);
+        cir5.moveTo(no1-50,400);
+
+        cir5.lineTo(no1,500);
+        cir5.lineTo(no1+50,400);
         
         // cir4.lineTo(no1+50,100);
         
-        cir5.stroke();
+        // cir5.stroke();
         cir5.fill();
         cir5.closePath();
 
@@ -128,36 +144,55 @@ function main1(Color1) {
     no1=50;
     for(var i=0;i<13;i++){
         cir5.fillStyle = Color1 ;
-        // cir4.beginPath();
 
         cir5.moveTo(no1,500);
-        cir5.lineTo(no1+50,400);
-        // cir4.lineTo(no1+50,200);
-        // cir4.lineTo(no1+50,300);
-        // cir4.lineTo(no1+50,500);
+        cir5.lineTo(no1+50,600);
         cir5.lineTo(no1+100,500);
-        // cir4.lineTo(no1+50,300);
-        // cir4.lineTo(50,200);
-        cir5.stroke();
+        // cir5.stroke();
         cir5.fill();
         cir5.closePath();
 
         no1+=200;
     }
+  //   no1=150;
+  //   for(var i=0;i<13;i++){
+  //     cir5.fillStyle = Color1 ;
+
+  //     cir5.moveTo(no1,205);
+  //     cir5.lineTo(no1+50,305);
+  //     cir5.lineTo(no1+100,205);
+  //     // cir5.stroke();
+  //     cir5.fill();
+  //     cir5.closePath();
+
+  //     no1+=200;
+  // }
 
 }
 
 function main2(Color2) {
+  var no1=0;
+  for(var i=0;i<13;i++){
+      cir4.fillStyle = 'white' ;
+      cir4.beginPath();
+  
+      cir4.moveTo(no1,0);
+      cir4.lineTo(no1-50,100);
+      cir4.lineTo(no1+50,100);
+      cir4.lineTo(no1,0);
+  
+      // cir4.stroke();
+      cir4.fill();
+      no1+=200;
+  }
     no1=100;
     for(var i=0;i<13;i++){
         cir4.fillStyle = Color2 ;
-        // cir4.beginPath();
         cir4.moveTo(no1,0);
         cir4.lineTo(no1-50,100);
         cir4.lineTo(no1+50,100);
-        // cir4.lineTo(no1,0);
         
-        cir4.stroke();
+        // cir4.stroke();
         cir4.fill();
         cir4.closePath();
         no1=no1+200;
@@ -168,27 +203,25 @@ function main2(Color2) {
     for(var i=0;i<13;i++){
 
         cir4.fillStyle = Color2 ;
-        // cir4.beginPath();
 
         cir4.moveTo(no1-50,100);
         cir4.lineTo(no1,200);
         cir4.lineTo(no1-100,200);
-        // cir4.lineTo(no1-50,100);
 
-        cir4.stroke();
+        // cir4.stroke();
         cir4.fill();
         cir4.closePath();
         no1+=100;
     }
 }
   var changeColor = setInterval(function() {
-    if(no5%2==0) Color1='grey';
+    if(no5%2!=0) Color1='grey';
     else Color1='white';
     console.log(no5);
     main1(Color1)
     no5+=1;
   }, 1000)
-//   main1(Color1);
+  // main1('grey');
   
 //   window.addEventListener("load", main1);
 
@@ -199,7 +232,7 @@ function main2(Color2) {
     main2(Color2)
     no6+=1;
   }, 1000)
-//   main2(Color2)
+  // main2('grey');
 
 //   window.addEventListener("load", main2);
 
