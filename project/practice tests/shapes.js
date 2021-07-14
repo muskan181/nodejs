@@ -217,7 +217,7 @@ function main2(Color2) {
   var changeColor = setInterval(function() {
     if(no5%2!=0) Color1='grey';
     else Color1='white';
-    console.log(no5);
+    // console.log(no5);
     main1(Color1)
     no5+=1;
   }, 1000)
