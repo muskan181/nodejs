@@ -5,138 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="shapes5.css">
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <script>
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
-        //to keep the animation inside the window
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-       
-        var angle=0;
-        var x=100;
-        var z;
-        var no=0;
-        var y=0;
-        var o=0;
-        var m=0;
-        var n=0;
-        var vari=0;
-        
-function triangle(x,no){
-    z=-10000;
-    ctx.save();
-
-    // changing origin in x coordinate to move the triangles in forward direction
-    ctx.translate(x,0);
-
-    //loop to create 1000 number of triangles
-    for(var i=0;i<1000;i++){
-        
-        ctx.save();
-        ctx.beginPath();
-        ctx.setLineDash([5, 5]);
-        ctx.fillStyle="grey"
-
-        //changing the x coordinate to create loop of series of traiangles in a line
-        ctx.translate(z,300);
-
-        //changing the angle in evry function to rorate the triangles
-        ctx.rotate(angle);
-
-        if(no%2==0){
-            //bigger traingles
-
-            //upper triangle
-            ctx.moveTo(0,0);
-            ctx.lineTo(-50+m/2,-100+1.4*m);
-            ctx.lineTo(50-m/2,-100+1.4*m);
-            ctx.lineTo(0,0);
-
-            //lower triangles
-            ctx.moveTo(0,0);
-            ctx.lineTo(-100+y,0);
-            ctx.lineTo(-50+y/2,100-y);
-            ctx.lineTo(0,0);
-
-
-            ctx.moveTo(0,0);
-            ctx.lineTo(100-y,0);
-            ctx.lineTo(50-y/2,100-y);
-            ctx.lineTo(0,0);
-
-        }else{
-            //smaller triangles
-            
-            //upper triangle
-            ctx.moveTo(0,0);
-            ctx.lineTo(-25-n,-50-n*1.5);
-            ctx.lineTo(25+n,-50-n*1.5);
-            ctx.lineTo(0,0);
-            
-            //lower triangles
-            ctx.moveTo(0,0);
-            ctx.lineTo(-50-o,0);
-            ctx.lineTo(-25-o/2,50+o);
-            ctx.lineTo(0,0);
-
-            ctx.moveTo(0,0);
-            ctx.lineTo(50+o,0);
-            ctx.lineTo(25+o/2,50+o);
-            ctx.lineTo(0,0);
-
-        }
-        ctx.fill();
-        // ctx.stroke();
-        ctx.restore();
-        z+=200;
-        no++;
-        
-        
-    }
-    ctx.restore();   
-        
-}
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    angle+=0.1;
-    //for decreasing the size
-    if(vari<100){
-        if(vari==100){
-            vari=101;
-        }
-        else{
-            y+=0.5;
-            o+=0.6;
-            m+=0.35;
-            n+=0.4;
-        }
-    }
-    //for increasing the size
-    else{
-        if(vari==200){
-            vari=0;
-            y=0;
-            o=0;
-            m=0;
-            n=0;
-        }
-        else{
-            y-=0.5;
-            o-=0.6;
-            m-=0.35;
-            n-=0.4;
-        }
-    }
-    vari+=1;
-    x+=0.8;
-    triangle(x,no);
-    requestAnimationFrame(animate);
-}
-animate();
-    </script>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="30" value="15" class="slider" id="myRange">
+        <p>Value: <span id="demo"></span></p>
+        <input type="range" min="1" max="30" value="15" class="slider" id="myRange2">
+        <p>Value: <span id="demo2"></span></p>
+    </div>
+    <script src="shapes5.js"></script>
 </body>
 </html>
