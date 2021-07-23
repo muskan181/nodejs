@@ -10,7 +10,15 @@
 <body>
     <canvas id="canvas"></canvas>
     <div class="slidecontainer">
-        <input type="range" min="1" max="30" value="15" class="slider" id="myRange">
+        <input type="range" min="1" max="30" value="5" class="slider" id="myRange3">
+        <p>y: <span id="demo3"></span></p>
+        <input type="range" min="1" max="30" value="3.5" class="slider" id="myRange4">
+        <p>m: <span id="demo4"></span></p>
+        <input type="range" min="1" max="30" value="6" class="slider" id="myRange5">
+        <p>o: <span id="demo5"></span></p>
+        <input type="range" min="1" max="30" value="4" class="slider" id="myRange6">
+        <p>n: <span id="demo6"></span></p>
+        <input type="range" min="1" max="30" value="8" class="slider" id="myRange">
         <p>rotating speed: <span id="demo"></span></p>
         <input type="range" min="1" max="30" value="8" class="slider" id="myRange2">
         <p>moving forward speed: <span id="demo2"></span></p>
@@ -31,6 +39,38 @@
         slider2.oninput = function() {
             output2.innerHTML = this.value;
         }
+
+        var slider3 = document.getElementById("myRange3");
+        var output3 = document.getElementById("demo3");
+        output3.innerHTML = slider3.value;
+
+        slider3.oninput = function() {
+            output3.innerHTML = this.value;
+        }
+
+        var slider4 = document.getElementById("myRange4");
+        var output4 = document.getElementById("demo4");
+        output4.innerHTML = slider4.value;
+
+        slider4.oninput = function() {
+            output4.innerHTML = this.value;
+        }
+        var slider5 = document.getElementById("myRange5");
+        var output5 = document.getElementById("demo5");
+        output5.innerHTML = slider5.value;
+
+        slider5.oninput = function() {
+            output5.innerHTML = this.value;
+        }
+
+        var slider6 = document.getElementById("myRange6");
+        var output6 = document.getElementById("demo6");
+        output6.innerHTML = slider6.value;
+
+        slider6.oninput = function() {
+            output6.innerHTML = this.value;
+        }
+
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
         //to keep the animation inside the window
@@ -60,14 +100,14 @@ function triangle(x,no){
         
         ctx.save();
         ctx.beginPath();
-        ctx.setLineDash([5, 5]);
-        ctx.fillStyle="grey"
+        ctx.setLineDash([3, 3]);
+        // ctx.fillStyle="grey"
 
         //changing the x coordinate to create loop of series of traiangles in a line
         ctx.translate(z,300);
 
         //changing the angle in evry function to rorate the triangles
-        // ctx.rotate(angle);
+        ctx.rotate(angle);
 
         if(no%2==0){
             //bigger traingles
@@ -112,8 +152,8 @@ function triangle(x,no){
             ctx.lineTo(0,0);
 
         }
-        ctx.fill();
-        // ctx.stroke();
+        // ctx.fill();
+        ctx.stroke();
         ctx.restore();
         z+=200;
         no++;
@@ -135,10 +175,14 @@ function animate(){
             vari=101;
         }
         else{
-            y+=0.5;
-            m+=0.35;
-            o+=0.6;
-            n+=0.4;
+            y+=0.1*(output3.innerHTML);
+            m+=0.1*(output4.innerHTML);
+            // y+=0.5;
+            //m+=0.35;
+            // o+=0.6;
+            // n+=0.4;
+            o+=0.1*(output5.innerHTML);
+            n+=0.1*(output6.innerHTML);
         }
     }
     //for increasing the size
@@ -147,11 +191,14 @@ function animate(){
             vari=0;
         }
         else{
-            
-            y-=0.5;
-            m-=0.35;
-            o-=0.6;
-            n-=0.4;
+            y-=0.1*(output3.innerHTML);
+            m-=0.1*(output4.innerHTML);
+            // y-=0.5;
+            // m-=0.35;
+            // o-=0.6;
+            // n-=0.4;
+            o-=0.1*(output5.innerHTML);
+            n-=0.1*(output6.innerHTML);
         }
     }
     vari+=1;

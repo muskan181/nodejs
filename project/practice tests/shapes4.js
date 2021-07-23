@@ -251,21 +251,13 @@ no=1;
 no1=100;
 for(var i=0;i<15;i++){
     cir4.fillStyle = color4;
-    // cir4.beginPath();
-    
     cir4.moveTo(no1,1000);
-
     cir4.lineTo(no1+50,1100);
     cir4.lineTo(no1+100,1000);
     cir4.lineTo(no1,1000);
-    
-    // cir4.lineTo(no1+50,100);
-    
     // cir4.stroke();
     cir4.fill();
     cir4.closePath();
-
-    // no1=no1+100;
     if(no==2){
         no1+=400;
         no=1;
@@ -285,20 +277,13 @@ var no=1;
 var no1=250;
 for(var i=0;i<15;i++){
     cir5.fillStyle = color5 ;
-    // cir5.beginPath();
-    
     cir5.moveTo(no1,100);
-
     cir5.lineTo(no1+50,200);
     cir5.lineTo(no1+100,100);
     cir5.lineTo(no1,100);
-    
-    // cir5.lineTo(no1+50,100);
-    
     // cir5.stroke();
     cir5.fill();
     cir5.closePath();
-    // console.log(no+" ");
     if(no==2){
         no1+=400;
         no=1;
@@ -308,23 +293,15 @@ for(var i=0;i<15;i++){
         no1+=200;
         no++;
     }
-    // console.log(no+" ");
-    // no++;
 }
 no1=100;
 no=0;
 for(var i=0;i<15;i++){
     cir5.fillStyle = color5 ;
-    // cir5.beginPath();
-    
     cir5.moveTo(no1,200);
-
     cir5.lineTo(no1+50,300);
     cir5.lineTo(no1+100,200);
     cir5.lineTo(no1,200);
-    
-    // cir5.lineTo(no1+50,100);
-    
     // cir5.stroke();
     cir5.fill();
     cir5.closePath();
@@ -335,58 +312,40 @@ for(var i=0;i<15;i++){
         no1+=100; 
         no++;
     }
-    // no++;
 }
 }
 
 
 function main6(color6){
 // sixth slide
-
 var no=1;
 var no1=250;
 for(var i=0;i<15;i++){
     cir6.fillStyle = color6;
-    // cir4.beginPath();
-    
     cir6.moveTo(no1,400);
-
     cir6.lineTo(no1+50,500);
     cir6.lineTo(no1+100,400);
     cir6.lineTo(no1,400);
-    
-    // cir4.lineTo(no1+50,100);
-    // 
     // cir6.stroke();
     cir6.fill();
     cir6.closePath();
-    // console.log(no+" ");
     if(no==2){
         no1+=400;
         no=1;
-
     }
     else{
         no1+=200;
         no++;
     }
-    // console.log(no+" ");
-    // no++;
 }
 no1=200;
 no=0;
 for(var i=0;i<15;i++){
     cir6.fillStyle = color6 ;
-    // cir4.beginPath();
-    
     cir6.moveTo(no1,500);
-
     cir6.lineTo(no1+50,600);
     cir6.lineTo(no1+100,500);
     cir6.lineTo(no1,500);
-    
-    // cir4.lineTo(no1+50,100);
-    
     // cir6.stroke();
     cir6.fill();
     cir6.closePath();
@@ -397,7 +356,6 @@ for(var i=0;i<15;i++){
         no1+=100; 
         no++;
     }
-    // no++;
 }
 }
 
