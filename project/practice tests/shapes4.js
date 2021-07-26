@@ -44,34 +44,26 @@ var color5;
 var color6;
 function main1(color1){
     var no=1;
-var no1=50;
+    var no1=50;
 for(var i=0;i<15;i++){
     cir1.fillStyle = color1 ;
-    // cir1.beginPath();
-    
-    cir1.moveTo(no1,0);
 
+    cir1.moveTo(no1,0);
     cir1.lineTo(no1+50,100);
     cir1.lineTo(no1+100,0);
     cir1.lineTo(no1,0);
-    
-    // cir1.lineTo(no1+50,100);
-    
     // cir1.stroke();
     cir1.fill();
     cir1.closePath();
-    // console.log(no+" ");
+
     if(no==2){
         no1+=400;
         no=1;
-
     }
     else{
         no1+=200;
         no++;
     }
-    // console.log(no+" ");
-    // no++;
 }
 no1=0;
 no=0;
