@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #triangles2{
+            position: absolute;
+        /* top: -300px; */
+        top: 8px;
+        }
+        #lines{ 
+            position: absolute;
+            top:409px;
+         } 
+         #colored{
+             position: absolute;
+             top:8px;
+         }
+         #colored2{
+             position: absolute;
+             top:8px;
+             right:25px;
+         }
+    </style>
+</head>
+<body>
+    <canvas id="triangles"></canvas>
+    <canvas id="triangles2"></canvas>
+    <canvas id="lines"></canvas>
+    <canvas id="colored"></canvas>
+    <canvas id="colored2"></canvas>
+
+
+    <script>
+        const canvas=document.getElementById('triangles')
+        const cir=canvas.getContext('2d');
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+
+        const canvas2=document.getElementById('triangles2')
+        const cir2=canvas2.getContext('2d');
+        canvas2.width=window.innerWidth;
+        canvas2.height=window.innerHeight;
+
+        const canvas3=document.getElementById('lines')
+        const cir3=canvas3.getContext('2d');
+        canvas3.width=window.innerWidth;
+        canvas3.height=window.innerHeight;
+
+        const canvas4=document.getElementById('colored')
+        const cir4=canvas4.getContext('2d');
+        canvas4.width=window.innerWidth;
+        canvas4.height=window.innerHeight;
+
+        const canvas5=document.getElementById('colored2')
+        const cir5=canvas5.getContext('2d');
+        canvas5.width=window.innerWidth;
+        canvas5.height=window.innerHeight;
+
+        var no1=0;
+        var arr=[];
+        var array=[];
+        //upper triangle
+        for(var i=0;i<18;i++){
+            
+            cir.fillStyle="white";
+            cir.moveTo(no1,200);
+            cir.lineTo(no1+50,300);
+            cir.lineTo(no1+100,200);
+            cir.lineTo(no1,200);
+        
+            cir.stroke();
+            cir.fill();
+            cir.closePath();
+            no1+=100;
+        }
+        no1=-50;
+        //lower triangle
+        for(var i=0;i<18;i++){
+            cir2.fillStyle="white";
+            cir2.moveTo(no1,300);
+            cir2.lineTo(no1+50,400);
+            cir2.lineTo(no1+100,300);
+            cir2.lineTo(no1,300);
+        
+            cir2.stroke();
+            cir2.fill();
+            cir2.closePath();
+            no1+=100;
+        }
+        //lower line
+        no1=0;
+        for(var i=0;i<18;i++){
+
+            cir3.moveTo(no1,0);
+            cir3.lineTo(no1+100,0);
+            cir3.stroke();
+            cir3.closePath();
+            no1+=100;
+        }
+        
+
+        //function for a single upper triangle
+
+        // var a=5;
+        // upper(a);
+        // function upper(a){
+            // cir4.clearRect(0, 0, canvas4.width, canvas4.height);
+        //     var tmp=a*100;
+
+        //     cir4.fillStyle="grey";
+        //     cir4.moveTo(tmp,200);
+        //     cir4.lineTo(tmp+50,300);
+        //     cir4.lineTo(tmp+100,200);
+        //     cir4.lineTo(tmp,200);
+        
+        //     cir4.stroke();
+        //     cir4.fill();
+        //     cir4.closePath();
+        // }
+
+        //function for a single lower triangle
+
+        // var a=5;
+        // lower(a);
+        // function lower(a){
+            // cir5.clearRect(0, 0, canvas5.width, canvas5.height);
+        //     var tmp=a*100;
+
+        //     cir5.fillStyle="grey";
+        //     cir5.moveTo(tmp,300);
+        //     cir5.lineTo(tmp+50,400);
+        //     cir5.lineTo(tmp+100,300);
+        //     cir5.lineTo(tmp,300);
+        
+        //     cir5.stroke();
+        //     cir5.fill();
+        //     cir5.closePath();
+        // }
+        
+        //function for a list of colored upper traingle
+
+        // var arr=[0,4,7];
+        // upper(arr);
+        function upper(arr){
+            cir4.clearRect(0, 0, canvas4.width, canvas4.height);
+            for(var i=0;i<arr.length;i++){
+                var tmp=arr[i]*100;
+
+                cir4.fillStyle="grey";
+                cir4.moveTo(tmp,200);
+                cir4.lineTo(tmp+50,300);
+                cir4.lineTo(tmp+100,200);
+                cir4.lineTo(tmp,200);
+            
+                cir4.stroke();
+                cir4.fill();
+                cir4.closePath();
+            }
+        }
+
+        //function for a list of colored lower triangle
+
+        // var array=[2,4,7];
+        // lower(array);
+        function lower(array){
+            cir5.clearRect(0, 0, canvas5.width, canvas5.height);
+            for(var i=0;i<array.length;i++){
+                var tmp=array[i]*100;
+
+                cir5.fillStyle="grey";
+                cir5.moveTo(tmp,300);
+                cir5.lineTo(tmp+50,400);
+                cir5.lineTo(tmp+100,300);
+                cir5.lineTo(tmp,300);
+            
+                cir5.stroke();
+                cir5.fill();
+                cir5.closePath();
+            }
+        }
+        var slide=6;
+        
+        var changeColor1 = setInterval(function() {
+            console.log(arr,array);
+            console.log(slide);
+
+            cir4.clearRect(0, 0, canvas4.width, canvas4.height);
+            cir5.clearRect(0, 0, canvas5.width, canvas5.height);
+            if(slide==1){
+                arr=[1,3];
+                array=[1,2,3,4];
+            }
+            if(slide==2){
+                arr=[1,2,3,4];
+                array=[1,3];
+            }
+            if(slide==3){
+                arr=[1,2,3,4];
+                array=[2,4];
+            }
+            if(slide==4){
+                arr=[2,3,4,5];
+                array=[2,4];
+            }
+            if(slide==5){
+                arr=[3,5];
+                array=[2,3,4,5];
+            }
+            if(slide==6){
+                arr=[3,5];
+                array=[3,4,5,6];
+                slide=0;
+            }
+            // slide=1+slide;
+            console.log(slide);
+
+            upper(arr);
+            lower(array);
+        },1000)
+    </script>
+</body>
+</html>
