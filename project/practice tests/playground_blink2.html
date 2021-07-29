@@ -147,15 +147,22 @@
         // upper(arr);
         function upper(arr){
             cir4.clearRect(0, 0, canvas4.width, canvas4.height);
-            for(var i=0;i<arr.length;i++){
-                var tmp=arr[i]*100;
-
-                cir4.fillStyle="grey";
-                cir4.moveTo(tmp,200);
-                cir4.lineTo(tmp+50,300);
-                cir4.lineTo(tmp+100,200);
-                cir4.lineTo(tmp,200);
-            
+            for(var i=0;i<=6;i++){
+                var tmp=i*100;
+                if(arr[i]!==i){
+                    cir4.fillStyle="white";
+                //     cir4.moveTo(tmp,200);
+                // cir4.lineTo(tmp+50,300);
+                // cir4.lineTo(tmp+100,200);
+                // cir4.lineTo(tmp,200);
+                }
+                else{
+                    cir4.fillStyle="grey";
+                    cir4.moveTo(tmp,200);
+                    cir4.lineTo(tmp+50,300);
+                    cir4.lineTo(tmp+100,200);
+                    cir4.lineTo(tmp,200);
+                }
                 cir4.stroke();
                 cir4.fill();
                 cir4.closePath();
@@ -166,23 +173,23 @@
 
         // var array=[2,4,7];
         // lower(array);
-        function lower(array){
-            cir5.clearRect(0, 0, canvas5.width, canvas5.height);
-            for(var i=0;i<array.length;i++){
-                var tmp=array[i]*100;
+        // function lower(array){
+        //     cir5.clearRect(0, 0, canvas5.width, canvas5.height);
+        //     for(var i=0;i<array.length;i++){
+        //         var tmp=array[i]*100;
 
-                cir5.fillStyle="grey";
-                cir5.moveTo(tmp,300);
-                cir5.lineTo(tmp+50,400);
-                cir5.lineTo(tmp+100,300);
-                cir5.lineTo(tmp,300);
+        //         cir4.fillStyle="grey";
+        //         cir4.moveTo(tmp,300);
+        //         cir4.lineTo(tmp+50,400);
+        //         cir4.lineTo(tmp+100,300);
+        //         cir4.lineTo(tmp,300);
             
-                cir5.stroke();
-                cir5.fill();
-                cir5.closePath();
-            }
-        }
-        var slide=6;
+        //         cir4.stroke();
+        //         cir4.fill();
+        //         cir4.closePath();
+        //     }
+        // }
+        var slide=1;
         
         var changeColor1 = setInterval(function() {
             console.log(arr,array);
@@ -215,7 +222,7 @@
                 array=[3,4,5,6];
                 slide=0;
             }
-            // slide=1+slide;
+            slide=1+slide;
             console.log(slide);
 
             upper(arr);
