@@ -41,7 +41,7 @@
             var x=0;
 
             //loop for 2 animations
-            for(var j=0;j<3;j++){
+            for(var j=0;j<5;j++){
 
                 //loop for 6 triangles each for upper and lower
                 for(var i=0;i<6;i++){
@@ -55,6 +55,7 @@
                         color_tri.beginPath();
                         color_tri.fillStyle="grey";
                     }
+
                     color_tri.moveTo(tmp,200);
                     color_tri.lineTo(tmp+50,300);
                     color_tri.lineTo(tmp+100,200);
@@ -72,6 +73,7 @@
                         color_tri.beginPath();
                         color_tri.fillStyle="grey";
                     }
+                    
                     color_tri.moveTo(tmp-50,300);
                     color_tri.lineTo(tmp,400);
                     color_tri.lineTo(tmp+50,300);
@@ -79,8 +81,7 @@
                     color_tri.stroke();
                     color_tri.fill();
                     color_tri.closePath();
-                    
-
+    
                     //last line
                     color_tri.moveTo(tmp,400);
                     color_tri.lineTo(tmp+100,400);
@@ -91,7 +92,6 @@
                     tmp+=100;
                 }
             }
-           
         }
         var slide=1;
         
