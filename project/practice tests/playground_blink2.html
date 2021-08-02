@@ -24,30 +24,27 @@
 
         //list of colored upper traingle
         var arr=[];
-        for(var i=0;i<6; i++){
+        for(var i=0;i<12; i++){
             arr[i]="white";
         }
         //list of colored lower traingle
         var array=[];
-        for(var i=0;i<6; i++){
+        for(var i=0;i<12; i++){
             array[i]="white";
         }
+        //x-coordinate
+        var tmp=-1000;
         
         // function which will run a list to colour the triangles
-        function colored(arr,array){
-
-            //x-coordinate changing with this tmp and x
-            var tmp=0;
-            var x=0;
-
-            //loop for 2 animations
-            for(var j=0;j<5;j++){
+        function colored(arr,array,tmp){
+            //loop for 4 animations simultaneously
+            for(var j=0;j<4;j++){
 
                 //loop for 6 triangles each for upper and lower
+                var x=0;
                 for(var i=0;i<6;i++){
-
                     //upper triangles coordinates
-                    if(arr[i]=="white"){
+                    if(arr[x]=="white"){
                         color_tri.beginPath();
                         color_tri.fillStyle="white";
                     }
@@ -65,7 +62,7 @@
                     color_tri.closePath();
 
                     //lower triangles coordinates
-                    if(array[i]=="white"){
+                    if(array[x]=="white"){
                         color_tri.beginPath();
                         color_tri.fillStyle="white";
                     }
@@ -89,6 +86,8 @@
                     color_tri.fill();
                     color_tri.closePath();
 
+                    if(x==5) x=0;
+                    else x++;
                     tmp+=100;
                 }
             }
@@ -98,12 +97,14 @@
         //function creating list of colours and calling upper function
         var changeColor1 = setInterval(function() {
             if(slide==1){
+                
                 arr[4]="white";
                 arr[0]=arr[2]="grey";
                 array[0]=array[1]=array[2]=array[3]="grey";
                 array[4]=array[5]="white";
             }
             if(slide==2){
+                
                 arr[1]=arr[3]="grey";
                 array[1]=array[3]="white";
             }
@@ -119,13 +120,20 @@
                 arr[1]=arr[3]="white";
                 array[2]=array[4]="grey";
             }
-            if(slide==6){
-                array[1]="white";
-                array[5]="grey";
-                slide=0;
-            }
             slide++;
-            colored(arr,array);
+            colored(arr,array,tmp);
+
+            //to again repeat the same animation from starting coordinates so it will be an infinite loop
+            if(tmp==-400){
+                tmp=-1000;
+                slide=2;
+            }
+
+            //sliding the x coordinate 200 distance to start the animation from slide 1 of particular object but from tmp+200 distance
+            if(slide==6){
+                tmp+=200;
+                slide=1;
+            }
         },1000)
     </script>
 </body>
