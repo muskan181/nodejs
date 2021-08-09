@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="shapes5.css">
 </head>
 <body>
     <canvas id="triangle"></canvas>
+    <div class="slidecontainer">
+        <input type="range" min="100" max="10000" value="1000" class="slider" id="myRange">
+        <p>speed: <span id="demo"></span></p>
+        <input type="range" min="1" max="20" value="5" class="slider" id="myRange2">
+        <p>size: <span id="demo2"></span></p>
+    </div>
 
     <script>
         //canvas for color traingle
@@ -16,11 +23,29 @@
         color_t.width=window.innerWidth;
         color_t.height=window.innerHeight;
 
-        //size of triangle
-        var size=50;
+        //speed slider
+        var slider = document.getElementById("myRange");
+        var speed = document.getElementById("demo");
+        speed.innerHTML = slider.value;
 
-        //no of objects in one frame width
-        var no_t=color_t.width/(6*size);
+        slider.oninput = function() {
+            speed.innerHTML = this.value;
+        }
+        
+        //size slider
+        var slider2 = document.getElementById("myRange2");
+        var sizes = document.getElementById("demo2");
+        sizes.innerHTML = slider2.value;
+
+        slider2.oninput = function() {
+            sizes.innerHTML = this.value;
+        }
+
+        //size of triangle
+        var size=10;
+        
+        //no of objects in one frame width        
+        var no_t=color_t.width/(6*size*sizes.innerHTML);
 
         //list of colored upper traingle
         var arr=[];
@@ -37,8 +62,8 @@
         
         // function which will run a list to colour the triangles
         function colored(arr,array,tmp){
-            //loop for 2*no_t animations simultaneously
-            for(var j=0;j<=2*no_t;j++){
+            //loop for 3*no_t animations simultaneously
+            for(var j=0;j<=3*no_t;j++){
                 //loop for 6 triangles each for upper and lower
                 for(var i=0;i<6;i++){
 
@@ -53,8 +78,8 @@
                     }
                     color_tri.setLineDash([1, 1]);
                     color_tri.moveTo(tmp,200);
-                    color_tri.lineTo(tmp+(size/2),200+size);
-                    color_tri.lineTo(tmp+size,200);
+                    color_tri.lineTo(tmp+(size*sizes.innerHTML/2),200+size*sizes.innerHTML);
+                    color_tri.lineTo(tmp+size*sizes.innerHTML,200);
                     color_tri.lineTo(tmp,200);
                     color_tri.stroke();
                     color_tri.fill();
@@ -69,30 +94,32 @@
                         color_tri.beginPath();
                         color_tri.fillStyle="grey";
                     }
-                    color_tri.moveTo(tmp-(size/2),200+size);
-                    color_tri.lineTo(tmp,200+(2*size));
-                    color_tri.lineTo(tmp+(size/2),200+size);
-                    color_tri.lineTo(tmp-(size/2),200+size);
+                    color_tri.moveTo(tmp-(size*sizes.innerHTML/2),200+size*sizes.innerHTML);
+                    color_tri.lineTo(tmp,200+(2*size*sizes.innerHTML));
+                    color_tri.lineTo(tmp+(size*sizes.innerHTML/2),200+size*sizes.innerHTML);
+                    color_tri.lineTo(tmp-(size*sizes.innerHTML/2),200+size*sizes.innerHTML);
                     color_tri.stroke();
                     color_tri.fill();
                     color_tri.closePath();
 
-                    color_tri.moveTo(tmp,200+(2*size));
-                    color_tri.lineTo(tmp+size,200+(2*size));
+                    //for lower line
+                    color_tri.moveTo(tmp,200+(2*size*sizes.innerHTML));
+                    color_tri.lineTo(tmp+size*sizes.innerHTML,200+(2*size*sizes.innerHTML));
                     color_tri.stroke();
                     color_tri.fill();
                     color_tri.closePath();
 
-                    tmp+=size;
+                    tmp+=size*sizes.innerHTML;
                 }
             }
         }
         var slide=1;
-        
+
+        f1();
         //function creating list of colours and calling upper function
-        var changeColor1 = setInterval(function() {
+        function f1(){
+            color_tri.clearRect(0,0,color_t.width,color_t.height);
             if(slide==1){
-                
                 arr[4]="white";
                 arr[0]=arr[2]="grey";
                 array[0]=array[1]=array[2]=array[3]="grey";
@@ -118,17 +145,20 @@
             colored(arr,array,tmp);
 
             //to again repeat the same animation from starting coordinates so it will be an infinite loop
-            if(tmp==(-1000+6*size)){
+            if(tmp==(-1000+6*size*sizes.innerHTML)){
                 tmp=-1000;
                 slide=2;
             }
 
-            //sliding the x coordinate to a distance to start the animation from slide 1 for same object but for 2*size distance
+            //sliding the x coordinate to a distance to start the animation from slide 1 for same object but for 2*size*sizes.innerHTML distance
             if(slide==6){
-                tmp+=2*size;
+                tmp+=2*size*sizes.innerHTML;
                 slide=1;
             }
-        },1000)
+
+            //for chainging the timing of function
+            setTimeout(f1,speed.innerHTML);
+        }
     </script>
 </body>
 </html>
